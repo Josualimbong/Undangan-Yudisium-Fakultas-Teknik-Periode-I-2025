@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Undangan Yudisium Fakultas Teknik UNIPA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      /* CSS Anda yang sama... */
+      body {
+        min-height: 100vh;
+        background: linear-gradient(-45deg, #dee2ff, #c3cfff, #b8c0ff, #dee2ff);
+        background-size: 400% 400%;
+        animation: gradientMove 12s ease infinite;
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #4e54c8, #8f94fb);
+        color: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+        animation: shine 6s linear infinite;
+      }
+
+      @keyframes shine {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #formSection,
+      #undanganSection {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(6px);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      iframe {
+        border-radius: 0.5rem;
+        transition: all 0.5s ease;
+        border: none;
+      }
+
+      iframe:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #4e54c8, #8f94fb);
+        border: none;
+        font-weight: 500;
+      }
+
+      .btn-secondary {
+        background: linear-gradient(135deg, #6c757d, #868e96);
+        border: none;
+        font-weight: 500;
+      }
+
+      .spinner-border-sm {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .nama-mahasiswa {
+        color: #4e54c8;
+        font-weight: 600;
+        margin: 15px 0;
+      }
+
+      .card {
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .acara-item {
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        background: #f8f9fa;
+        border-left: 4px solid #4e54c8;
+      }
+
+      .acara-number {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: #4e54c8;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 25px;
+        margin-right: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .acara-title {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 5px;
+      }
+
+      .section-title {
+        color: #4e54c8;
+        font-weight: 700;
+        text-align: center;
+        margin: 30px 0 20px 0;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #4e54c8;
+        margin: 8px auto 0 auto;
+        border-radius: 2px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .container {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        #formSection,
+        #undanganSection {
+          padding: 1.5rem;
+        }
+
+        .hero {
+          padding: 1.5rem;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        .acara-item {
+          padding: 10px 12px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        #formSection,
+        #undanganSection {
+          padding: 1rem;
+        }
+
+        .hero {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 1.6rem;
+        }
+
+        .acara-item {
+          padding: 8px 10px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-4">
+      <!-- Header -->
+      <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Undangan Yudisium</h1>
+        <p class="lead">Fakultas Teknik - Universitas Papua</p>
+      </div>
+
+      <!-- Form Input NIM -->
+      <div id="formSection" class="text-center">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card p-4">
+              <h4 class="mb-3 fw-semibold text-primary">Masukkan NIM Anda</h4>
+              <p class="text-muted mb-4">Untuk melihat undangan yudisium Anda</p>
+
+              <div class="mb-3">
+                <input type="text" id="nimInput" class="form-control text-center shadow-sm" placeholder="Contoh: 202152063" maxlength="9" />
+                <div class="form-text">Masukkan 9 digit NIM Anda</div>
+              </div>
+
+              <button id="btnCari" class="btn btn-primary w-100 py-2 shadow mb-3">
+                <span id="btnText">Lihat Undangan</span>
+                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+              </button>
+
+              <div id="alertBox" class="alert alert-danger mt-3 d-none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Halaman Undangan -->
+      <div id="undanganSection" class="mt-4" style="display: none">
+        <div class="hero mb-4">
+          <h3 class="fw-bold">Yudisium Fakultas Teknik</h3>
+          <h5>Universitas Papua</h5>
+          <p class="mb-0">Periode November 2025</p>
+        </div>
+
+        <div class="card p-4 mb-4">
+          <div class="text-center">
+            <img src="assets/logo-unipa.png" alt="Logo UNIPA" style="max-width: 120px" class="mb-3" onerror="this.style.display='none'" />
+            <h4 id="namaMahasiswa" class="nama-mahasiswa"></h4>
+            <p>Kepada Yth. Orang Tua/Wali</p>
+            <hr />
+          </div>
+
+          <div class="px-2 px-md-4 pb-3">
+            <h5 class="fw-bold text-primary">Dekan Fakultas Teknik Universitas Papua</h5>
+            <p class="mt-3">
+              Dengan hormat, mengundang Bapak/Ibu, Saudara/i untuk menghadiri acara
+              <strong>"Pelepasan Lulusan dalam rangka Wisuda Sarjana dan Diploma Tahap I Tahun Akademik 2025/2026."</strong>
+            </p>
+
+            <div class="mt-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card p-3 mb-3">
+                    <h6 class="fw-bold text-primary">Hari/Tanggal:</h6>
+                    <p>Sabtu, 22 November 2025</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card p-3 mb-3">
+                    <h6 class="fw-bold text-primary">Waktu:</h6>
+                    <p>09:00 WIT – Selesai</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card p-3 mb-4">
+                <h6 class="fw-bold text-primary">Tempat:</h6>
+                <p>Aula Fakultas Teknik, Universitas Papua, Manokwari</p>
+              </div>
+            </div>
+
+            <!-- Susunan Acara -->
+            <h3 class="section-title">~ Susunan Acara ~</h3>
+            <div class="card p-4">
+              <!-- Bagian 1: Pembukaan -->
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">1</span>
+                  Makan Siang
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">2</span>
+                  Pembukaan
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">3</span>
+                  Doa
+                </div>
+              </div>
+
+              <!-- Bagian 2: Lagu dan SK -->
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">4</span>
+                  Menyanyikan Lagu Indonesia Raya
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">5</span>
+                  Menyanyikan Lagu Hymne UNIPA
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">6</span>
+                  Pembacaan SK Yudisium
+                </div>
+              </div>
+
+              <!-- Bagian 3: Penyerahan -->
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">7</span>
+                  Penyerahan SK Yudisium dari Dekan Fakultas Teknik kepada Rektor UNIPA
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">8</span>
+                  Penyerahan Sertifikat Penghargaan kepada Lulusan Terbaik
+                </div>
+              </div>
+
+              <!-- Bagian 4: Sambutan dan Persembahan -->
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">9</span>
+                  Persembahan Wisudawan: Pemutaran Film "Emas dari Timur"
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">10</span>
+                  Sambutan Dekan
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">11</span>
+                  Sambutan Rektor
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">12</span>
+                  Pesan dan Kesan Alumni
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">13</span>
+                  Pesan dan Kesan Orang Tua
+                </div>
+              </div>
+
+              <!-- Bagian 5: Penutup -->
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">14</span>
+                  Menyanyikan Lagu "Papua Pulau Indah"
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">15</span>
+                  Foto Bersama
+                </div>
+              </div>
+              <div class="acara-item">
+                <div class="acara-title">
+                  <span class="acara-number">16</span>
+                  Penutup
+                </div>
+              </div>
+            </div>
+
+            <!-- Lokasi dan Maps -->
+            <h6 class="mt-4 fw-bold text-primary">Lokasi Fakultas Teknik:</h6>
+            <div class="mt-3">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.146248154238!2d134.0782499750092!3d-0.8612036352323549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d540bf3d2d5e0a5%3A0x5c5c5c5c5c5c5c5c!2sFakultas%20Teknik%20Universitas%20Papua!5e0!3m2!1sid!2sid!4v1690000000000!5m2!1sid!2sid"
+                width="100%"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+
+            <div class="mt-3 text-center">
+              <a href="https://maps.google.com/?q=Fakultas+Teknik+Universitas+Papua,Manokwari" target="_blank" class="btn btn-outline-primary btn-sm"> 📍 Buka di Google Maps </a>
+            </div>
+
+            <p class="mt-4 text-center fw-semibold">Atas perhatian Bapak/Ibu, kami ucapkan terima kasih.</p>
+
+            <div class="text-center mt-4">
+              <button id="btnKembali" class="btn btn-secondary px-4">Kembali</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // DATA MAHASISWA LANGSUNG DI JAVASCRIPT
+      const dataMahasiswa = [
+        {
+          nim: '202152063',
+          nama: 'Musa Faisal Duwiri',
+          gelar: 'A.Md.T',
+        },
+        {
+          nim: '202152064',
+          nama: 'Contoh Mahasiswa Lain',
+          gelar: 'S.T.',
+        },
+        {
+          nim: '202152065',
+          nama: 'Nama Mahasiswa Contoh',
+          gelar: 'A.Md.Kom.',
+        },
+      ]
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const nimInput = document.getElementById('nimInput')
+        const btnCari = document.getElementById('btnCari')
+        const btnKembali = document.getElementById('btnKembali')
+        const btnText = document.getElementById('btnText')
+        const btnSpinner = document.getElementById('btnSpinner')
+        const alertBox = document.getElementById('alertBox')
+        const formSection = document.getElementById('formSection')
+        const undanganSection = document.getElementById('undanganSection')
+        const namaMahasiswa = document.getElementById('namaMahasiswa')
+
+        // Format NIM input
+        nimInput.addEventListener('input', function () {
+          this.value = this.value.replace(/[^0-9]/g, '')
+        })
+
+        // Enter key support
+        nimInput.addEventListener('keypress', function (e) {
+          if (e.key === 'Enter') {
+            btnCari.click()
+          }
+        })
+
+        // Cari mahasiswa
+        btnCari.addEventListener('click', function () {
+          const nim = nimInput.value.trim()
+
+          // Validasi input
+          if (!nim) {
+            showAlert('Harap masukkan NIM Anda')
+            return
+          }
+
+          if (nim.length !== 9) {
+            showAlert('NIM harus terdiri dari 9 digit')
+            return
+          }
+
+          // Tampilkan loading state
+          btnText.textContent = 'Memuat...'
+          btnSpinner.classList.remove('d-none')
+          btnCari.disabled = true
+          hideAlert()
+
+          // Gunakan data langsung dari JavaScript (tidak perlu fetch)
+          setTimeout(() => {
+            const mhs = dataMahasiswa.find((m) => m.nim === nim)
+
+            if (mhs) {
+              formSection.style.display = 'none'
+              undanganSection.style.display = 'block'
+              namaMahasiswa.textContent = `${mhs.nama}, ${mhs.gelar}`
+
+              // Scroll ke atas
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            } else {
+              showAlert('NIM tidak ditemukan. Pastikan NIM yang dimasukkan benar.')
+            }
+
+            // Reset loading state
+            btnText.textContent = 'Lihat Undangan'
+            btnSpinner.classList.add('d-none')
+            btnCari.disabled = false
+          }, 500) // Simulasi loading
+        })
+
+        // Tombol kembali
+        btnKembali.addEventListener('click', function () {
+          undanganSection.style.display = 'none'
+          formSection.style.display = 'block'
+          nimInput.value = ''
+          hideAlert()
+
+          // Scroll ke atas
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        })
+
+        // Fungsi helper untuk alert
+        function showAlert(message) {
+          alertBox.textContent = message
+          alertBox.classList.remove('d-none')
+        }
+
+        function hideAlert() {
+          alertBox.classList.add('d-none')
+        }
+      })
+    </script>
+  </body>
+</html>
